@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses1">
+  <DataContextMoniker Name="/sky" />
+  <nestedChildShapes>
+    <classShape Id="5b4c247b-1786-4273-aa1f-d02bea4f343e" absoluteBounds="0.75, 0.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/sky/HH_baseline" />
+      <nestedChildShapes>
+        <elementListCompartment Id="de1b39bf-7afa-4673-821c-96e4cb67ed5d" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5d270a98-eb6a-4d87-9bd1-1e3085245fa6" absoluteBounds="3.75, 0.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/sky/IND_Followup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f67fd08-6b2f-4eb2-9404-d7594819acaa" absoluteBounds="3.765, 1.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4fa525c-b3c8-4cb6-9241-845e86b08379" absoluteBounds="0.75, 3.25, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/sky/IND_Baseline" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7adad93e-0834-4d52-90db-9c6ecce4e315" absoluteBounds="0.765, 3.71, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

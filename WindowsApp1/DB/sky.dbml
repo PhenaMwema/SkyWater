@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SkyWater" Class="sky" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\;Initial Catalog=SkyWater;Integrated Security=True" SettingsObjectName="SkyWater.My.MySettings" SettingsPropertyName="SkyWaterConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.HH_baseline" Member="HH_baselines">
+    <Type Name="HH_baseline">
+      <Column Name="VID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HHID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HHeadName" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="VisitNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="School_child" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sleeprooms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rec_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Officer" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IND_Followup" Member="IND_Followups">
+    <Type Name="IND_Followup">
+      <Column Name="VID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DSS_ID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HHID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Names" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sick" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Sick_Dur" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LooseStool" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="OtherSymptoms" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="TreatmentPlace" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Treatmentgiven" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Refered" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Officer" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Rec_date" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IND_Baseline" Member="IND_Baselines">
+    <Type Name="IND_Baseline">
+      <Column Name="VID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DSS_ID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Full_Names" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Sex" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="RelHH" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Education" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Occupation" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Breastfeeding" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="VisitCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Officer" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="rec_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="settings.manageUsers" Method="manageUsers">
+    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="groupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="onames" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="code" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="logged" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="status" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="officer" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="type" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.HHBaseline" Method="HHBaseline">
+    <Parameter Name="VID" Parameter="vID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HHID" Parameter="hHID" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="HHeadName" Parameter="hHeadName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="VisitNo" Parameter="visitNo" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="School_child" Parameter="school_child" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sleeprooms" Type="System.Int32" DbType="Int" />
+    <Parameter Name="rec_date" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Officer" Parameter="officer" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="type" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.HHFollowup" Method="HHFollowup">
+    <Parameter Name="VID" Parameter="vID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HHID" Parameter="hHID" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_last" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_pipedhse" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_pipedcmpd" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_publictap" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_shofco" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_nonshofco" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_privatewell" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_bottleh2o" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_bagh2o" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_vendorh2o" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_munictap" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_unknownh2o" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="obtain_otherh2o" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="shofco_kiosk" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="cont_see" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="cont_observe" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="cont_type" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="cont_covered" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="d_pour" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="d_scoopcup" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="d_scoopladle" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="d_empty" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="store_dur" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="h2o_treat" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="method_treat" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="treat_otherchem" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="treat_othermthd" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="treat_materialobserved" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="cl_aqua" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Cl_certeza" Parameter="cl_certeza" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Cl_na" Parameter="cl_na" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Cl_waterguard" Parameter="cl_waterguard" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Cl_watermaker" Parameter="cl_watermaker" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Cl_unk" Parameter="cl_unk" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Cl_other" Parameter="cl_other" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Cl_PG" Parameter="cl_PG" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="cl_test" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="taste_notice" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="bad_taste" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="prevent_collection" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="p_handwash" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="p_pipewater" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="P_nopipe_notap" Parameter="p_nopipe_notap" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="p_nopipe_tap" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="p_basin" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="p_soap" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="p_amc" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="main_defeac" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="defeac_other" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="toilet_type" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="toilet_othertype" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="slab_material" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="door" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="use_cost" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="use_timeunit" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="sharing" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="toilet_emptied" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="toilet_full" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="child_defeac" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="feac_dispose" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="feac_disposeOther" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="feac_observed" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="feac_elsewhere" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="comments" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="rec_date" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Officer" Parameter="officer" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="type" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.manage_indBaseline" Method="manage_indBaseline">
+    <Parameter Name="VID" Parameter="vID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HHID" Parameter="hHID" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="DSS_ID" Parameter="dSS_ID" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Full_Names" Parameter="full_Names" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Sex" Parameter="sex" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="RelHH" Parameter="relHH" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Education" Parameter="education" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Occupation" Parameter="occupation" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Breastfeeding" Parameter="breastfeeding" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="VisitCode" Parameter="visitCode" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Officer" Parameter="officer" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="type" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.manage_indFollowUp" Method="manage_indFollowUp">
+    <Parameter Name="VID" Parameter="vID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DSS_ID" Parameter="dSS_ID" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="HHID" Parameter="hHID" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Names" Parameter="names" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Sick" Parameter="sick" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Sick_Dur" Parameter="sick_Dur" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="LooseStool" Parameter="looseStool" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="SeekTreatment" Parameter="seekTreatment" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="TreatmentPlace" Parameter="treatmentPlace" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="TreatmentSought" Parameter="treatmentSought" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="OtherSymptoms" Parameter="otherSymptoms" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Complaints" Parameter="complaints" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Officer" Parameter="officer" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="type" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
